@@ -1,0 +1,491 @@
+/*  
+===========================================
+RESET – Deixa tudo "zerado" no navegador  
+Isso remove margens e espaçamentos padrão  
+e deixa tudo igual em todos os navegadores  
+===========================================
+*/
+* {
+    margin: 0;            /* Tira a margem externa padrão dos elementos */
+    padding: 0;           /* Tira o espaçamento interno padrão */
+    box-sizing: border-box; /* Faz com que largura/altura considerem bordas e padding */
+}
+ 
+ 
+/*
+===========================================
+ESTILO GERAL DO SITE  
+Define fonte, cor de fundo e estilo básico  
+===========================================
+*/
+body {
+    font-family: 'Segoe UI', Arial, sans-serif; /* Define a fonte do texto */
+    background: linear-gradient(135deg, #e3e9f1, #f4f7fa); /* Fundo degradê */
+    color: #333;      /* Cor padrão do texto */
+    min-height: 100vh; /* Garante que o site ocupe 100% da altura da tela */
+}
+ 
+ 
+/*
+===========================================
+MENU SUPERIOR  
+Onde ficam os botões do sistema  
+===========================================
+*/
+nav.menu {
+    display: flex;                 /* Deixa os itens lado a lado */
+    justify-content: center;       /* Centraliza os itens */
+    gap: 20px;                     /* Espaço entre eles */
+    background: #0d6efd;           /* Cor azul */
+    padding: 15px;                 /* Espaço interno */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombrinha leve */
+}
+ 
+ 
+/*
+Botão do menu (ex: Usuários, Livros, Aluguéis)
+*/
+.dropbtn {
+    background: transparent;      /* Sem fundo */
+    border: none;                 /* Sem borda */
+    color: #fff;                  /* Texto branco */
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: 0.3s;            /* Animação suave */
+    border-radius: 6px;
+}
+ 
+.dropbtn:hover {
+    background: rgba(255,255,255,0.15); /* Efeito claro ao passar o mouse */
+}
+ 
+ 
+/*
+Caixa que envolve o menu dropdown
+*/
+.dropdown {
+    position: relative; /* Necessário para abrir o menu embaixo */
+}
+ 
+ 
+/*
+Conteúdo do menu dropdown (links escondidos)
+*/
+.dropdown-content {
+    display: none;                 /* Começa escondido */
+    position: absolute;            /* Abre embaixo do botão */
+    background: #fff;
+    min-width: 180px;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    animation: fadeIn 0.2s ease-in-out;
+    z-index: 100;
+}
+ 
+.dropdown-content a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.2s;
+}
+ 
+.dropdown-content a:hover {
+    background: #f0f0f0;
+}
+ 
+/*
+Mostra o menu dropdown quando passa o mouse
+*/
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+ 
+ 
+/*
+Botão de sair do sistema
+*/
+.menu .logout {
+    background: #dc3545; /* Vermelho */
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+ 
+.menu .logout:hover {
+    background: #bb2d3b;
+}
+ 
+ 
+/*
+===========================================
+CONTAINER – Caixa branca central da página  
+===========================================
+*/
+.container {
+    max-width: 650px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+ 
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #222;
+}
+ 
+ 
+/*
+===========================================
+ESTILO DOS FORMULÁRIOS  
+Caixas de texto, botão, select etc  
+===========================================
+*/
+form input,
+form select,
+form button {
+    width: 100%;                 /* Ocupa a largura toda */
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: 0.2s;
+}
+ 
+form input:focus,
+form select:focus {
+    border-color: #0d6efd; /* Azul */
+    outline: none;
+}
+ 
+form button {
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+ 
+form button:hover {
+    background: #0b5ed7;
+}
+ 
+ 
+/*
+Mensagens de erro e sucesso
+*/
+.erro { color: #dc3545; text-align: center; }
+.sucesso { color: #198754; text-align: center; }
+ 
+ 
+/*
+Animação suave usada em vários elementos
+*/
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+ 
+ 
+/*
+===========================================
+FORMULÁRIO DE CADASTRO DE USUÁRIO  
+Caixa branca com sombra e animação  
+===========================================
+*/
+.container {
+    max-width: 450px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.12);
+    animation: fadeIn 0.3s ease-in-out;
+}
+ 
+.container h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #222;
+}
+ 
+ 
+/*
+Inputs e selects do formulário
+*/
+form input,
+form select {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #c9c9c9;
+    font-size: 16px;
+    background: #f8f9fa;
+}
+ 
+form input:focus,
+form select:focus {
+    border-color: #0d6efd;
+    background: #ffffff;
+    box-shadow: 0 0 4px rgba(13,110,253,0.4);
+    outline: none;
+}
+ 
+form button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    background: #0d6efd;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+ 
+form button:hover {
+    background: #0b5ed7;
+}
+ 
+ 
+/*
+Mensagens bonitas
+*/
+.sucesso,
+.erro {
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+ 
+.sucesso {
+    color: #0f5132;
+    background: #d1e7dd;
+    border: 1px solid #badbcc;
+}
+ 
+.erro {
+    color: #842029;
+    background: #f8d7da;
+    border: 1px solid #f5c2c7;
+}
+ 
+ 
+/*
+===========================================
+LISTA DE USUÁRIOS  
+Tabela estilizada  
+===========================================
+*/
+.lista-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+    animation: fadeIn .3s ease;
+}
+ 
+.lista-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #222;
+}
+ 
+ 
+/*
+Tabela de usuários
+*/
+.tabela-usuarios {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaços internos */
+    font-size: 16px;
+}
+ 
+.tabela-usuarios thead {
+    background: #0d6efd;
+    color: #fff;
+}
+ 
+.tabela-usuarios th,
+.tabela-usuarios td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #dcdcdc;
+}
+ 
+.tabela-usuarios tr:hover {
+    background: #f5f8ff; /* Efeito hover */
+}
+ 
+ 
+/*
+Botões de editar e excluir
+*/
+.btn-editar,
+.btn-excluir {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+    font-size: 14px;
+}
+ 
+.btn-editar {
+    background: #0d6efd;
+    color: #fff;
+}
+ 
+.btn-editar:hover {
+    background: #0b5ed7;
+}
+ 
+.btn-excluir {
+    background: #dc3545;
+    color: #fff;
+}
+ 
+.btn-excluir:hover {
+    background: #bb2d3b;
+}
+ 
+ 
+/*
+===========================================
+ESTILO DA TELA DE EDITAR  
+===========================================
+*/
+.card-editar {
+    max-width: 450px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.12);
+    animation: fadeIn 0.3s ease-in-out;
+}
+ 
+.card-editar h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #222;
+}
+ 
+.input-group {
+    margin-bottom: 18px;
+}
+ 
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+ 
+.input-group small {
+    color: #777;
+    font-size: 12px;
+}
+ 
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #cfcfcf;
+    background: #f8f9fa;
+    transition: .2s;
+}
+ 
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #0d6efd;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(13,110,253,0.4);
+    outline: none;
+}
+ 
+ 
+/*
+Botão principal
+*/
+.btn {
+    display: block;
+    width: 100%;
+    background: #0d6efd;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+ 
+.btn:hover {
+    background: #0b5ed7;
+}
+ 
+ 
+/*
+Botão voltar
+*/
+.btn-voltar {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    background: #6c757d;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+ 
+.btn-voltar:hover {
+    background: #5a6268;
+}
+ 
+ 
+/*
+Mensagem de erro
+*/
+.erro {
+    background: #f8d7da;
+    color: #842029;
+    padding: 12px;
+    border-left: 4px solid #dc3545;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+ 
+ 
+/*
+Repetição da animação fadeIn
+*/
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
